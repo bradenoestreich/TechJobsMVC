@@ -24,7 +24,7 @@ namespace TechJobsMVC.Controllers
         {
             List<Job> jobs = new List<Job>();
             ViewBag.columns = ListController.ColumnChoices;
-            ViewBag.jobs = jobs;
+            
 
             if (searchTerm == "" || searchTerm == null)
             {
@@ -34,6 +34,7 @@ namespace TechJobsMVC.Controllers
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
             }
 
+            ViewBag.jobs = jobs;
             return View("Index");
         }
     }
